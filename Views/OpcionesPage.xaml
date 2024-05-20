@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Base:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Base="clr-namespace:iscaPopAlvaro.Base"
+             x:Class="iscaPopAlvaro.Views.OpcionesPage"
+             Title="Opciones">
+    <VerticalStackLayout VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand"
+                     Padding="20">
+
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Opciones" 
+                   FontSize="30" 
+                   TextColor="#2196F3"
+                   HorizontalOptions="Center"/>
+
+                <Button Text="Iniciar Sesion" 
+                    Clicked="IniciarSesionClick"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    BackgroundColor="#2196F3"
+                    TextColor="White"
+                    CornerRadius="10"
+                    Margin="0,20,0,0"/>
+
+                <Button Text="Registrarse" 
+                    Clicked="RegistrarseClick"
+                    FontSize="20"
+                    FontAttributes="Bold"
+                    BackgroundColor="#4CAF50"
+                    TextColor="White"
+                    CornerRadius="10"
+                    Margin="0,20,0,0"/>
+            </StackLayout>
+        </ScrollView>
+    </VerticalStackLayout>
+</Base:BasePage>

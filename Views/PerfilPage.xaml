@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Base:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Base="clr-namespace:iscaPopAlvaro.Base"
+             x:Class="iscaPopAlvaro.Views.PerfilPage"
+             Title="Perfil">
+    <VerticalStackLayout Margin="20" Spacing="10">
+        <Label Text="Nom" FontSize="18" TextColor="#333333" />
+        <Entry x:Name="txtNomPerfil" Text="{Binding Organisme.nom}" Placeholder="Introduce el nom" FontSize="16" BackgroundColor="#F2F2F2" HeightRequest="40" />
+        <Label Text="Email" FontSize="18" TextColor="#333333" />
+        <Entry x:Name="txtEmailPerfil" Text="{Binding Organisme.email}" Placeholder="Introduce el email" FontSize="16" BackgroundColor="#F2F2F2" HeightRequest="40" />
+        <Label Text="Contraseña" FontSize="18" TextColor="#333333" />
+        <Entry x:Name="txtPasswordPerfil" Text="{Binding Organisme.password}" Placeholder="Introduce la contraseña" FontSize="16" BackgroundColor="#F2F2F2" HeightRequest="40" />
+        <Label Text="Lista de Materiales" FontSize="18" TextColor="#333333" Margin="0,20,0,0" />
+        
+        <HorizontalStackLayout Spacing="10">
+            <Button Text="Modificar" FontSize="18" BackgroundColor="#007BFF" TextColor="#FFFFFF" HeightRequest="50" Clicked="ModificarPerfil"/>
+            <Button Text="Eliminar" FontSize="18" BackgroundColor="#DC3545" TextColor="#FFFFFF" HeightRequest="50" Clicked="EliminarPerfil"/>
+            <Button Text="Cancelar" FontSize="18" BackgroundColor="#6C757D" TextColor="#FFFFFF" HeightRequest="50" Clicked="CancelarCambios"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</Base:BasePage>

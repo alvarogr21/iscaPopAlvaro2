@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Base:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Base="clr-namespace:iscaPopAlvaro.Base"
+             x:Class="iscaPopAlvaro.Views.MaterialPage"
+             Title="Crear Material">
+    <VerticalStackLayout>
+        <Label Text="Nom" FontSize="18" TextColor="#333333" />
+        <Entry x:Name="txtNom" Placeholder="Introduce el nom" FontSize="16" BackgroundColor="#F2F2F2" HeightRequest="40" Text="{Binding Material.nom}"/>
+        <Label Text="Uso" FontSize="18" TextColor="#333333" />
+        <Entry x:Name="txtUso" Placeholder="Introduce el uso" FontSize="16" BackgroundColor="#F2F2F2" HeightRequest="40" Text="{Binding Material.uso}"/>
+
+        <Picker x:Name="pickerEstat" Title="Selecciona l'estat" FontSize="16" BackgroundColor="#F2F2F2" HeightRequest="40" ItemDisplayBinding="{Binding Material.estat}">
+            <Picker.Items>
+                <x:String>Bueno</x:String>
+                <x:String>PocoGastado</x:String>
+                <x:String>Gastado</x:String>
+                <x:String>Mal</x:String>
+                <x:String>BastanteMal</x:String>
+                <x:String>MuyMal</x:String>
+            </Picker.Items>
+        </Picker>
+        
+        <Label Text="Descripcio" FontSize="18" TextColor="#333333" />
+        <Entry x:Name="txtDescripcio" Placeholder="Introduce la descripció" FontSize="16" BackgroundColor="#F2F2F2" HeightRequest="40" Text="{Binding Material.descripcio}"/>
+
+        <Button Text="Hacer foto" 
+            Clicked="HacerFotoClick"
+            FontSize="20"
+            FontAttributes="Bold"
+            BackgroundColor="#4CAF50"
+            TextColor="White"
+            CornerRadius="10"
+            Margin="0,20,0,0"/>
+
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+            <Button Text="Añadir" 
+                    x:Name="btnAñadir"
+            Clicked="AñadirClick"
+            FontSize="20"
+            FontAttributes="Bold"
+            BackgroundColor="#2196F3"
+            TextColor="White"
+            CornerRadius="10"
+            Margin="0,20,10,0"/>
+
+            <Button Text="Modificar" 
+                    x:Name="btnModificar"
+            Clicked="ModificarClick"
+            FontSize="20"
+            FontAttributes="Bold"
+            BackgroundColor="#4CAF50"
+            TextColor="White"
+            CornerRadius="10"
+            Margin="0,20,10,0"/>
+
+            <Button Text="Eliminar" 
+                    x:Name="btnEliminar"
+            Clicked="EliminarClick"
+            FontSize="20"
+            FontAttributes="Bold"
+            BackgroundColor="#F44336"
+            TextColor="White"
+            CornerRadius="10"
+            Margin="0,20,0,0"/>
+        </StackLayout>
+        <Label Text="{Binding Organisme.Nom}"/>
+    </VerticalStackLayout>
+</Base:BasePage>
