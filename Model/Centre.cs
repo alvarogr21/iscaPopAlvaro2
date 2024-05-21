@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -7,11 +8,9 @@ using System.Threading.Tasks;
 
 namespace iscaPopAlvaro.Model
 {
+    [Table("Centres")]
     public class Centre : Base.BaseModel
     {
-        private int _id;
-        public int id { get { return _id; } set { SetProperty(ref _id, value); } }
-
         private string _codigo;
         public string codigo { get { return _codigo; } set { SetProperty(ref _codigo, value); } }
 

@@ -24,6 +24,9 @@
         <Label Text="Descripcio" FontSize="18" TextColor="#333333" />
         <Entry x:Name="txtDescripcio" Placeholder="Introduce la descripció" FontSize="16" BackgroundColor="#F2F2F2" HeightRequest="40" Text="{Binding Material.descripcio}"/>
 
+        <Label Text="Stock" FontSize="18" TextColor="#333333" />
+        <Entry x:Name="txtStock" Placeholder="Introduce el stock" FontSize="16" BackgroundColor="#F2F2F2" HeightRequest="40" Text="{Binding Material.stock}"/>
+
         <Button Text="Hacer foto" 
             Clicked="HacerFotoClick"
             FontSize="20"

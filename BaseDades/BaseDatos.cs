@@ -17,7 +17,7 @@ namespace iscaPopAlvaro.BaseDades
 
         static BaseDatos()
         {
-            //CreaTablasAsync();
+            CreaTablasAsync();
         }
 
         public static SQLiteAsyncConnection GetConnection()
@@ -32,13 +32,13 @@ namespace iscaPopAlvaro.BaseDades
                 return connection;
             }
         }
-        /*
+        
         public static void CreaTablasAsync()
         {
-            GetConnection().DropTableAsync<Foto>().Wait();
+            /*GetConnection().DropTableAsync<Foto>().Wait();
             GetConnection().DropTableAsync<Material>().Wait();
             GetConnection().DropTableAsync<Organisme>().Wait();
-            GetConnection().DropTableAsync<Solicitud>().Wait();
+            GetConnection().DropTableAsync<Solicitud>().Wait();*/
 
             GetConnection().CreateTableAsync<Foto>().Wait();
             GetConnection().CreateTableAsync<Material>().Wait();
@@ -46,6 +46,6 @@ namespace iscaPopAlvaro.BaseDades
             GetConnection().CreateTableAsync<Solicitud>().Wait();
 
         }
-        */
+        
     }
 }

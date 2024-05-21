@@ -27,6 +27,9 @@ namespace iscaPopAlvaro.Model
         private string _descripcio;
         public string descripcio { get { return _descripcio; } set { SetProperty(ref _descripcio, value); } }
 
+        private int _stock;
+        public int stock { get { return _stock; } set { SetProperty(ref _stock, value); } }
+
         private List<Foto> _fotos;
         [OneToMany(CascadeOperations = CascadeOperation.CascadeInsert | CascadeOperation.CascadeRead)]
         public List<Foto> fotos

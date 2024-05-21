@@ -11,6 +11,7 @@ namespace iscaPopAlvaro.Views;
 public partial class LoginPage : Base.BasePage
 {
     public string codi;
+    public string codigoCentro;
     private LoginVM vm;
 
     public LoginPage()
@@ -22,45 +23,40 @@ public partial class LoginPage : Base.BasePage
     private void EnviarCodigoClick(object sender, EventArgs e)
     {
         string email = txtEmail.Text;
-        generarCodigo();
-        MailAddress addresFrom = new MailAddress("pruebasProyectos123456@gmail.com", "_PrUeBaS_pRoYeCtOs_123456_");
-        MailAddress addresTo = new MailAddress(email);
-        MailMessage message = new MailMessage(addresFrom, addresTo);
-        
-        message.Subject = "Código de verificación";
-        message.IsBodyHtml = true;
-        message.Body = "Tu código de verificación es: " + codi;
-
-        SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
-        smtpClient.Port = 587;
-        smtpClient.EnableSsl = true;
-        smtpClient.UseDefaultCredentials = false;
-        smtpClient.Credentials = new NetworkCredential("pruebasProyectos123456@gmail.com", "obrc elas rflm gler");
-
-
-        /*
-    // Configurar el cliente SMTP para enviar el correo electrónico
-    SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
-    smtpClient.Port = 587;
-    smtpClient.Credentials = new NetworkCredential("pruebasProyectos123456@gmail.com", "_PrUeBaS_pRoYeCtOs_123456_");
-    smtpClient.EnableSsl = true;
-
-    // Configurar el mensaje de correo electrónico
-    MailMessage mailMessage = new MailMessage();
-    mailMessage.From = new MailAddress("pruebasProyectos123456@gmail.com");
-    mailMessage.To.Add(email);
-    mailMessage.Subject = "Código de verificación";
-    mailMessage.Body = "Tu código de verificación es: " + codi;
-        */
-        // Enviar el correo electrónico
-        try
-        { 
-            smtpClient.Send(message);
-            DisplayAlert("Código de verificación enviado", "Se ha enviado un código de verificación a tu dirección de correo electrónico.", "OK");
-        }
-        catch (Exception ex)
+        int atIndex = email.IndexOf("@");
+        string beforeAt = email.Substring(0, atIndex);
+        List<Centre> listaCentres = vm.getCentres();
+        for(int i = 0; i < listaCentres.Count; i++)
         {
-            DisplayAlert("Error al enviar el correo electrónico", "Ha ocurrdo un error al enviar el correo electrónico", "OK");
+            if (listaCentres[i].codigo == beforeAt)
+            {
+                codigoCentro = beforeAt;
+                generarCodigo();
+                MailAddress addresFrom = new MailAddress("pruebasProyectos123456@gmail.com", "_PrUeBaS_pRoYeCtOs_123456_");
+                //MailAddress addresTo = new MailAddress(email);
+                MailAddress addresTo = new MailAddress("pruebasProyectos123456@gmail.com");
+                MailMessage message = new MailMessage(addresFrom, addresTo);
+
+                message.Subject = "Código de verificación";
+                message.IsBodyHtml = true;
+                message.Body = "Tu código de verificación es: " + codi;
+
+                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
+                smtpClient.Port = 587;
+                smtpClient.EnableSsl = true;
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = new NetworkCredential("pruebasProyectos123456@gmail.com", "obrc elas rflm gler");
+
+                try
+                {
+                    smtpClient.Send(message);
+                    DisplayAlert("Código de verificación enviado", "Se ha enviado un código de verificación a tu dirección de correo electrónico.", "OK");
+                }
+                catch (Exception ex)
+                {
+                    DisplayAlert("Error al enviar el correo electrónico", "Ha ocurrdo un error al enviar el correo electrónico", "OK");
+                }
+            }
         }
     }
 
@@ -71,9 +67,10 @@ public partial class LoginPage : Base.BasePage
         //if (esValido)
         //{
         string cod = codi;
+        string codigo = codigoCentro;
             string nom = "nombrePrueba";
             Organisme org = new Organisme();
-            org.nom = nom;
+            org.nom = vm.getNomCentre(codigo);
             org.codi = cod;
             org.email = correo;
             if (txtCodi.Text == codi)

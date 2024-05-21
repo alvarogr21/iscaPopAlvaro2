@@ -66,11 +66,13 @@ public partial class MaterialPage : Base.BasePage
         string nom = txtNom.Text;
         string uso = txtUso.Text;
         string descripcio = txtDescripcio.Text;
+        int stock = Convert.ToInt32(txtStock.Text);
         EnumEstadoMaterial estat = (EnumEstadoMaterial)Enum.Parse(typeof(EnumEstadoMaterial), (string)pickerEstat.SelectedItem);
         Material mat = new Material();
         mat.nom = nom;
         mat.uso = uso;
         mat.descripcio = descripcio;
+        mat.stock = stock;
         mat.estat = estat;
         mat.organisme = Organisme;
         Material = mat;
@@ -84,10 +86,12 @@ public partial class MaterialPage : Base.BasePage
         string nom = txtNom.Text;
         string uso = txtUso.Text;
         string descripcio = txtDescripcio.Text;
+        int stock = Convert.ToInt32(txtStock.Text);
         EnumEstadoMaterial estat = (EnumEstadoMaterial)Enum.Parse(typeof(EnumEstadoMaterial), (string)pickerEstat.SelectedItem);
         Material.nom = nom;
         Material.uso = uso;
         Material.descripcio = descripcio;
+        Material.stock = stock;
         Material.estat = estat;
         vm.modificarMaterial();
     }

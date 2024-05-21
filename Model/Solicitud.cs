@@ -13,6 +13,9 @@ namespace iscaPopAlvaro.Model
         private DateTime _momento;
         public DateTime momento { get { return _momento; } set { SetProperty(ref _momento, value); } }
 
+        private int _cantidad;
+        public int cantidad { get { return _cantidad; } set { SetProperty(ref _cantidad, value); } }
+
         [ForeignKey(typeof(Organisme))]
         public int organismeId { get; set; }
         [ManyToOne(CascadeOperations = CascadeOperation.CascadeInsert | CascadeOperation.CascadeRead)]
