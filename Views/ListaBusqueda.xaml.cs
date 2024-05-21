@@ -20,22 +20,22 @@ public partial class ListaBusqueda : Base.BasePage
         set { SetProperty(ref organisme, value); vm.assignDadesOrganisme(Organisme); }
     }
 
-    private string nom;
-    public string Nom
+    private String nom;
+    public String Nom
     {
         get { return nom; }
         set { SetProperty(ref nom, value); vm.assignDadesNom(nom); }
     }
 
-    private string uso;
-    public string Uso
+    private String uso;
+    public String Uso
     {
         get { return uso; }
         set { SetProperty(ref uso, value); vm.assignDadesUso(uso); }
     }
 
-    private string descripcio;
-    public string Descripcio
+    private String descripcio;
+    public String Descripcio
     {
         get { return descripcio; }
         set { SetProperty(ref descripcio, value); vm.assignDadesDescripcio(descripcio); }

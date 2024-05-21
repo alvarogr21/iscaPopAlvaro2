@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Base:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:Base="clr-namespace:iscaPopAlvaro.Base"
+             x:Class="iscaPopAlvaro.Views.SolicitarPage"
+             Title="SolicitarPage">
+    <VerticalStackLayout>
+        <Label Text="Nom" FontSize="18" TextColor="#333333" />
+        <Entry x:Name="txtNom" Placeholder="Introduce el nom" FontSize="16" BackgroundColor="#F2F2F2" HeightRequest="40" Text="{Binding Material.nom}" IsEnabled="False"/>
+        <Label Text="Uso" FontSize="18" TextColor="#333333" />
+        <Entry x:Name="txtUso" Placeholder="Introduce el uso" FontSize="16" BackgroundColor="#F2F2F2" HeightRequest="40" Text="{Binding Material.uso}" IsEnabled="False"/>
+
+        <Picker x:Name="pickerEstat" Title="Selecciona l'estat" FontSize="16" BackgroundColor="#F2F2F2" HeightRequest="40" ItemDisplayBinding="{Binding Material.estat}" IsEnabled="False">
+            <Picker.Items>
+                <x:String>Bueno</x:String>
+                <x:String>PocoGastado</x:String>
+                <x:String>Gastado</x:String>
+                <x:String>Mal</x:String>
+                <x:String>BastanteMal</x:String>
+                <x:String>MuyMal</x:String>
+            </Picker.Items>
+        </Picker>
+
+        <Label Text="Descripcio" FontSize="18" TextColor="#333333" />
+        <Entry x:Name="txtDescripcio" Placeholder="Introduce la descripció" FontSize="16" BackgroundColor="#F2F2F2" HeightRequest="40" Text="{Binding Material.descripcio}" IsEnabled="False"/>
+
+        <Label Text="Stock" FontSize="18" TextColor="#333333" />
+        <Entry x:Name="txtStock" Placeholder="Introduce el stock" FontSize="16" BackgroundColor="#F2F2F2" HeightRequest="40" Text="{Binding Material.stock}" IsEnabled="False"/>
+
+        <Label Text="Cantidad" FontSize="18" TextColor="#333333" />
+        <Entry x:Name="txtCantidad" Placeholder="Introduce la cantidad" FontSize="16" BackgroundColor="#F2F2F2" HeightRequest="40"/>
+
+        <Button Text="Solicitar" 
+        Clicked="SolicitarClick"
+        FontSize="20"
+        FontAttributes="Bold"
+        BackgroundColor="#4CAF50"
+        TextColor="White"
+        CornerRadius="10"
+        Margin="0,20,0,0"/>
+
+        <Label Text="{Binding Organisme.Nom}"/>
+    </VerticalStackLayout>
+</Base:BasePage>
