@@ -19,6 +19,8 @@ namespace iscaPopAlvaro.ViewModel
         private Material _material;
         public Material Material { get { return _material; } set { SetProperty(ref _material, value); } }
 
+        
+
         public MaterialVM() 
         { 
             materialDAO = new MaterialDAO();
@@ -47,5 +49,7 @@ namespace iscaPopAlvaro.ViewModel
         {
             materialDAO.deleteMaterial(this.Material);
         }
+
+        
     }
 }

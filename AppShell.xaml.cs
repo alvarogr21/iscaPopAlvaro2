@@ -14,6 +14,9 @@
             Routing.RegisterRoute(nameof(Views.MaterialPage), typeof(Views.MaterialPage));
             Routing.RegisterRoute(nameof(Views.HacerFotoPage), typeof(Views.HacerFotoPage));
             Routing.RegisterRoute(nameof(Views.ListaMaterialesPage), typeof(Views.ListaMaterialesPage));
+            Routing.RegisterRoute(nameof(Views.SeleccionarCaracteristicasPage), typeof(Views.SeleccionarCaracteristicasPage));
+            Routing.RegisterRoute(nameof(Views.ListaBusqueda), typeof(Views.ListaBusqueda));
+
         }
     }
 }

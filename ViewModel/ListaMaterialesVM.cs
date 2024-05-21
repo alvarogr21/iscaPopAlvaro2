@@ -40,7 +40,7 @@ namespace iscaPopAlvaro.ViewModel
             this.Material = mat;
         }
 
-        internal void getMaterialesOfOrganisme(Organisme org)
+        internal void getMaterialesOfOrganisme()
         {
             this.ListaMateriales = new ObservableCollection<Material>(matDAO.getMaterialesDeOrganisme(Organisme));
         }

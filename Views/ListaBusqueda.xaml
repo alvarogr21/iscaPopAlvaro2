@@ -2,8 +2,8 @@
 <Base:BasePage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:Base="clr-namespace:iscaPopAlvaro.Base"
-             x:Class="iscaPopAlvaro.Views.ListaMaterialesPage"
-             Title="ListaMaterialesPage">
+             x:Class="iscaPopAlvaro.Views.ListaBusqueda"
+             Title="ListaBusqueda">
     <VerticalStackLayout>
         <ListView ItemsSource="{Binding ListaMateriales}" HasUnevenRows="True" ItemTapped="MaterialSeleccionado">
             <ListView.ItemTemplate>
@@ -12,6 +12,9 @@
                         <StackLayout Padding="10">
                             <Label Text="{Binding nom}" FontSize="16" TextColor="#000000"/>
                             <Label Text="{Binding descripcio}" FontSize="14" TextColor="#666666"/>
+                            <Label Text="{Binding uso}" FontSize="14" TextColor="#666666"/>
+                            <Label Text="{Binding estat}" FontSize="14" TextColor="#666666"/>
+                            <Label Text="{Binding stock}" FontSize="14" TextColor="#666666"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
@@ -19,16 +22,6 @@
         </ListView>
 
         <Label Text="{Binding Organisme.Nom}"/>
-
-
-        <Button Text="Añadir" 
-    Clicked="AñadirClick"
-    FontSize="20"
-    FontAttributes="Bold"
-    BackgroundColor="#2196F3"
-    TextColor="White"
-    CornerRadius="10"
-    Margin="0,20,10,0"/>
 
     </VerticalStackLayout>
 </Base:BasePage>

@@ -33,7 +33,7 @@ public partial class ListaMaterialesPage : Base.BasePage
 
     private void OnLoad(object? sender, EventArgs e)
     {
-        vm.getMaterialesOfOrganisme(Organisme);
+        vm.getMaterialesOfOrganisme();
     }
 
     private async void MaterialSeleccionado(object sender, ItemTappedEventArgs e)

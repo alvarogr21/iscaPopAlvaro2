@@ -1,6 +1,8 @@
 ﻿using iscaPopAlvaro.BaseDades;
 using iscaPopAlvaro.Model;
 using iscaPopAlvaro.ViewModel;
+using Microsoft.Maui.ApplicationModel.Communication;
+using SQLite;
 using SQLiteNetExtensionsAsync.Extensions;
 using System;
 using System.Collections.Generic;
@@ -50,6 +52,20 @@ namespace iscaPopAlvaro.Dao
         public List<Material> getAllMateriales()
         {
             List<Material> listaMateriales = BaseDatos.GetConnection().GetAllWithChildrenAsync<Material>().Result;
+            return listaMateriales;
+        }
+
+        public List<Material> getMaterialesNoOrganisme(string nom, string descripcion, string uso, EnumEstadoMaterial estat, Organisme org)
+        {
+            List<Material> listaMateriales = new List<Material>();
+            List<Material> materials = BaseDatos.GetConnection().GetAllWithChildrenAsync<Material>(o => ( o.nom.Contains(nom) || o.descripcio.Contains(descripcion) || o.uso.Contains(uso)) && o.estat<=estat).Result;
+            foreach (Material material in materials)
+            {
+                if (material.organisme.id != org.id)
+                {
+                    listaMateriales.Add(material);
+                }
+            }
             return listaMateriales;
         }
     }
